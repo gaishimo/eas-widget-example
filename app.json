@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "eas-widget-example",
+    "name": "EAS Widget Example",
     "slug": "eas-widget-example",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -18,11 +18,11 @@
       "**/*"
     ],
     "ios": {
-      "bundleIdentifier": "com.example.app1",
+      "bundleIdentifier": "com.gaishimo.example1",
       "supportsTablet": true
     },
     "android": {
-      "package": "com.example.app1",
+      "package": "com.gaishimo.example1",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
