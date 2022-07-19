@@ -31,6 +31,22 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "extra": {
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "widget",
+                  "bundleIdentifier": "com.gaishimo.example1.widget"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
     "plugins": ["./app.plugin"]
   }
 }
