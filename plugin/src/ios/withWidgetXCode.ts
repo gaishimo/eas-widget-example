@@ -5,7 +5,7 @@ import xcode from "xcode"
 
 const EXTENSION_TARGET_NAME = "widget"
 
-// const DEVELOPMENT_TEAM_ID = "UF2VN9TFY6"
+const DEVELOPMENT_TEAM_ID = "UF2VN9TFY6"
 
 const TOP_LEVEL_FILES = ["Assets.xcassets", "Info.plist", "widget.swift"]
 
@@ -161,13 +161,9 @@ async function updateXCodeProj(
           configurations[key].buildSettings = {
             ...configurations[key].buildSettings,
             ...BUILD_CONFIGURATION_SETTINGS,
-            // DEVELOPMENT_TEAM: DEVELOPMENT_TEAM_ID,
+            DEVELOPMENT_TEAM: DEVELOPMENT_TEAM_ID,
             PRODUCT_BUNDLE_IDENTIFIER: widgetBundleId,
           }
-        }
-        if (bundleId === appBundleId) {
-          // configurations[key].buildSettings.DEVELOPMENT_TEAM =
-          //   DEVELOPMENT_TEAM_ID
         }
       }
     }

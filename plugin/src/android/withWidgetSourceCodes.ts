@@ -13,7 +13,6 @@ export const withWidgetSourceCodes: ConfigPlugin = config => {
       const widgetDir = path.join(projectRoot, "widget")
       copyResourceFiles(widgetDir, platformRoot)
 
-      // app.simpluna.alpha
       const packageName = config.android?.package
       prepareSourceCodes(widgetDir, platformRoot, packageName!)
 
