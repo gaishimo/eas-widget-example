@@ -13,23 +13,27 @@
   },
   "dependencies": {
     "expo": "~45.0.0",
+    "expo-splash-screen": "~0.15.1",
     "expo-status-bar": "~1.3.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-native": "0.68.2",
-    "react-native-web": "0.17.7",
-    "expo-splash-screen": "~0.15.1"
+    "react-native-web": "0.17.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^7.2.0",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.66.13",
     "expo-module-scripts": "^2.0.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
     "prettier": "^2.7.1",
     "typescript": "~4.3.5"
   },
   "private": true,
-  "resolutions":{
+  "resolutions": {
     "@types/react": "17.0.39"
   }
 }
