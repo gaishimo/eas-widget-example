@@ -47,6 +47,6 @@
         }
       }
     },
-    "plugins": [["./app.plugin", { "devTeamId": "UF2VN9TFY6" }]]
+    "plugins": [["./app.plugin", { "devTeamId": "<APPLE_DEV_TEAM_ID>" }]]
   }
 }
