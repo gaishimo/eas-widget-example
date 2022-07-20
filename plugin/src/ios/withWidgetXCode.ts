@@ -5,8 +5,6 @@ import xcode from "xcode"
 
 const EXTENSION_TARGET_NAME = "widget"
 
-const DEVELOPMENT_TEAM_ID = "UF2VN9TFY6"
-
 const TOP_LEVEL_FILES = ["Assets.xcassets", "Info.plist", "widget.swift"]
 
 const BUILD_CONFIGURATION_SETTINGS = {
@@ -42,7 +40,10 @@ const BUILD_CONFIGURATION_SETTINGS = {
   TARGETED_DEVICE_FAMILY: '"1"',
 }
 
-export const withWidgetXCode: ConfigPlugin = config => {
+export const withWidgetXCode: ConfigPlugin<WithWidgetProps> = (
+  config,
+  options: WithWidgetProps,
+) => {
   return withXcodeProject(config, async newConfig => {
     try {
       console.log(JSON.stringify(newConfig.modRequest, null, 2))
@@ -65,7 +66,7 @@ export const withWidgetXCode: ConfigPlugin = config => {
       fs.copySync(widgetSourceDirPath, extensionFilesDir)
 
       const projPath = `${newConfig.modRequest.platformProjectRoot}/${projectName}.xcodeproj/project.pbxproj`
-      await updateXCodeProj(projPath, bundleId, widgetBundleId)
+      await updateXCodeProj(projPath, widgetBundleId, options.devTeamId)
       return newConfig
     } catch (e) {
       console.error(e)
@@ -76,8 +77,8 @@ export const withWidgetXCode: ConfigPlugin = config => {
 
 async function updateXCodeProj(
   projPath: string,
-  appBundleId: string,
   widgetBundleId: string,
+  developmentTeamId: string,
 ) {
   console.log({ projPath })
 
@@ -154,14 +155,12 @@ async function updateXCodeProj(
     for (const key in configurations) {
       if (typeof configurations[key].buildSettings !== "undefined") {
         const productName = configurations[key].buildSettings.PRODUCT_NAME
-        const bundleId =
-          configurations[key].buildSettings.PRODUCT_BUNDLE_IDENTIFIER
         if (productName === `"${EXTENSION_TARGET_NAME}"`) {
           console.log("update build configuration", key)
           configurations[key].buildSettings = {
             ...configurations[key].buildSettings,
             ...BUILD_CONFIGURATION_SETTINGS,
-            DEVELOPMENT_TEAM: DEVELOPMENT_TEAM_ID,
+            DEVELOPMENT_TEAM: developmentTeamId,
             PRODUCT_BUNDLE_IDENTIFIER: widgetBundleId,
           }
         }

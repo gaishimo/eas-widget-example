@@ -47,6 +47,6 @@
         }
       }
     },
-    "plugins": ["./app.plugin"]
+    "plugins": [["./app.plugin", { "devTeamId": "UF2VN9TFY6" }]]
   }
 }
