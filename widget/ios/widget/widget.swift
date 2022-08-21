@@ -2,8 +2,6 @@
 //  widget.swift
 //  widget
 //
-//  Created by Toru Shimogaisho on 2022/07/19.
-//
 
 import WidgetKit
 import SwiftUI
