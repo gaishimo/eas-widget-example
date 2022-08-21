@@ -46,7 +46,6 @@ export const withWidgetXCode: ConfigPlugin<WithWidgetProps> = (
 ) => {
   return withXcodeProject(config, async newConfig => {
     try {
-      console.log(JSON.stringify(newConfig.modRequest, null, 2))
       const projectName = newConfig.modRequest.projectName
       const projectPath = newConfig.modRequest.projectRoot
       const platformProjectPath = newConfig.modRequest.platformProjectRoot
@@ -80,8 +79,6 @@ async function updateXCodeProj(
   widgetBundleId: string,
   developmentTeamId: string,
 ) {
-  console.log({ projPath })
-
   const xcodeProject = xcode.project(projPath)
 
   xcodeProject.parse(() => {
@@ -96,7 +93,6 @@ async function updateXCodeProj(
     const groups = xcodeProject.hash.project.objects.PBXGroup
     Object.keys(groups).forEach(function (groupKey) {
       if (groups[groupKey].name === undefined) {
-        console.log("new PBXGroup added to the top level group", groupKey)
         xcodeProject.addToPbxGroup(pbxGroup.uuid, groupKey)
       }
     })
@@ -118,7 +114,6 @@ async function updateXCodeProj(
       EXTENSION_TARGET_NAME,
       widgetBundleId,
     )
-    console.log("widgetTarget:", JSON.stringify(widgetTarget, null, 2))
 
     // add build phase
     xcodeProject.addBuildPhase(
@@ -143,20 +138,14 @@ async function updateXCodeProj(
       undefined,
       "widget",
     )
-    console.log(
-      "resourcesBuildPhase:",
-      JSON.stringify(resourcesBuildPhase, null, 2),
-    )
 
     /* Update build configurations */
     const configurations = xcodeProject.pbxXCBuildConfigurationSection()
-    // console.log("configurations:", JSON.stringify(configurations, null, 2))
 
     for (const key in configurations) {
       if (typeof configurations[key].buildSettings !== "undefined") {
         const productName = configurations[key].buildSettings.PRODUCT_NAME
         if (productName === `"${EXTENSION_TARGET_NAME}"`) {
-          console.log("update build configuration", key)
           configurations[key].buildSettings = {
             ...configurations[key].buildSettings,
             ...BUILD_CONFIGURATION_SETTINGS,

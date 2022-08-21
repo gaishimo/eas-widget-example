@@ -45,7 +45,6 @@ async function prepareSourceCodes(
   fs.copySync(source, dest)
 
   const files = glob.sync(`${dest}/*.kt`)
-  // console.log("files:", files)
   for (const file of files) {
     const content = fs.readFileSync(file, "utf8")
     const newContent = content.replace(

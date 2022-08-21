@@ -6,9 +6,6 @@ import {
 
 export const withWidgetManifest: ConfigPlugin = config => {
   return withAndroidManifest(config, async newConfig => {
-    // console.log("------------------Manifest: \n")
-    // console.log(JSON.stringify(androidManifest, null, 2))
-
     const mainApplication = AndroidConfig.Manifest.getMainApplicationOrThrow(
       newConfig.modResults,
     )

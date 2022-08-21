@@ -8,7 +8,6 @@ import { ConfigPlugin, withProjectBuildGradle } from "@expo/config-plugins"
 export const withWidgetProjectBuildGradle: ConfigPlugin = config => {
   return withProjectBuildGradle(config, async newConfig => {
     const buildGradle = newConfig.modResults.contents
-    // console.log("------------------buildGradle: \n", buildGradle)
 
     const search = /dependencies\s?{/
     const replace = `dependencies {
