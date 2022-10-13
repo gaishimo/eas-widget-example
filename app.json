@@ -47,6 +47,9 @@
         }
       }
     },
-    "plugins": [["./app.plugin", { "devTeamId": "<APPLE_DEV_TEAM_ID>" }]]
+    "plugins": [
+      ["expo-build-properties", { "android": { "kotlinVersion": "1.6.10" } }],
+      ["./app.plugin", { "devTeamId": "<APPLE_DEV_TEAM_ID>" }]
+    ]
   }
 }
