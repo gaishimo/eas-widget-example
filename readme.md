@@ -2,10 +2,16 @@
 Here is an example of a Widget in Expo's Managed Workflow (EAS).
 
 
+| Android | iOS |
+|:-----------:|:------------:|
+|<img width="280" src="./images/homescreen-android.png" />|<img width="280" src="./images/homescreen-ios.png" />|
+
+
+
 ## Folders
 
-- plugin/: Config Plugins
-- widget/: Template files for widget
+- plugin: Config Plugins
+- widget: Template files for widget
 
 
 ## Set up
