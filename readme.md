@@ -23,9 +23,12 @@ Here is an example of a Widget in Expo's Managed Workflow (EAS).
 
 ### Edit app.json
 
-- Edit `android.package`, `ios.bundleIdentifier`, and `extra.eas.build.experimental.ios.appExtensions`.
-- Change `<APPLE_DEV_TEAM_ID>` into your actual dev team id.
+Edit following fields.
 
+- `android.package`
+- `ios.bundleIdentifier`
+- `extra.eas.build.experimental.ios.appExtensions`
+- `<APPLE_DEV_TEAM_ID>` in `plugins`
 
 ## Run on Local
 
