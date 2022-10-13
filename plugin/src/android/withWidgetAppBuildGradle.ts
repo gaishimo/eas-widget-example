@@ -1,7 +1,7 @@
 import { ConfigPlugin, withAppBuildGradle } from "@expo/config-plugins"
 
 /**
- * kotlin-androidの設定を追加する
+ * Add "apply plugin: kotlin-android" to app build.gradle
  * @param config
  * @returns
  */
