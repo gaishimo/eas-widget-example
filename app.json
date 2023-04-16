@@ -31,22 +31,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "extra": {
-      "eas": {
-        "build": {
-          "experimental": {
-            "ios": {
-              "appExtensions": [
-                {
-                  "targetName": "widget",
-                  "bundleIdentifier": "com.gaishimo.example1.widget"
-                }
-              ]
-            }
-          }
-        }
-      }
-    },
     "plugins": [
       ["expo-build-properties", { "android": { "kotlinVersion": "1.6.10" } }],
       ["./app.plugin", { "devTeamId": "<APPLE_DEV_TEAM_ID>" }]
