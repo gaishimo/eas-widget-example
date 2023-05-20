@@ -27,7 +27,6 @@ Edit following fields.
 
 - `android.package`
 - `ios.bundleIdentifier`
-- `extra.eas.build.experimental.ios.appExtensions`
 - `<APPLE_DEV_TEAM_ID>` in `plugins`
 
 ## Run on Local
